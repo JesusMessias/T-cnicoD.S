@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Verificação de Idade</h1>
+        
+        <!-- Campo de entrada para a idade -->
+        <input type="number" id="ageInput" placeholder="Digite sua idade" min="0">
+
+        <!-- Botão para verificar a idade -->
+        <button onclick="verifyAge()">Verificar Idade</button>
+
+        <!-- Elemento para exibir a mensagem de resultado -->
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Função para verificar a idade
+        function verifyAge() {
+            // Obtendo a idade inserida pelo usuário
+            var age = document.getElementById("ageInput").value;
+            var resultElement = document.getElementById("result");
+
+            // Verificando se a idade foi inserida
+            if (age === "") {
+                resultElement.textContent = "Por favor, insira sua idade.";
+                resultElement.style.color = "red";
+            } else {
+                // Convertendo a idade para número
+                age = parseInt(age);
+
+                // Exibindo a mensagem se a idade é maior ou menor de 18 anos
+                if (age >= 18) {
+                    resultElement.textContent = "Você é maior de idade.";
+                    resultElement.style.color = "green";
+                }
+                else {
+                    resultElement.textContent = "Você é menor de idade.";
+                    resultElement.style.color = "red";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
